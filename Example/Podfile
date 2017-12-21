@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ELNetworking_Example' do
+  pod 'ELNetworking', :path => '../'
+
+  target 'ELNetworking_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
