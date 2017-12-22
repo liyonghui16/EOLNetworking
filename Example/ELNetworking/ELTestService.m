@@ -15,11 +15,11 @@
 }
 
 - (NSString *)pageIndexKey {
-    return @"pageIndex";
+    return @"pageindex";
 }
 
 - (NSString *)pageSizeKey {
-    return @"pageSize";
+    return @"pagesize";
 }
 
 - (ELRequestType)commonRequestType {
@@ -38,6 +38,9 @@
     ELResponse *response = [[ELResponse alloc] init];
     response.data = responseObject;
     response.code = code;
+    if (code == ELResponseCodeSuccess) {
+        response.success = YES;
+    }
     return response;
 }
 
