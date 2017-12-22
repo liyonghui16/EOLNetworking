@@ -48,6 +48,8 @@
     self.isLoading = YES;
     id<ELAPIService> service = [ELServiceManager sharedManager].service;
     NSAssert(service, @"You must register a service for ELNetwork!");
+    if (![service shouldCallApi:self]) return;
+    
     NSString *domain = service.commonDomain;
 
     if ([self.child respondsToSelector:@selector(APIDomain)]) {
@@ -102,9 +104,12 @@
     // 请求前的log
     [self willRequestWithDomain:domain params:params];
     
-    [[ELNetwork sharedNetwork] startRequestWithMethodType:reqType domain:domain methodName:methodName params:params completionHandle:^(ELResponse *response, NSDictionary *rawData) {
+    [[ELNetwork sharedNetwork] startRequestWithMethodType:reqType domain:domain methodName:methodName params:params completionHandle:^(NSDictionary *rawData, NSInteger code) {
         self.rawData = rawData;
         self.isLoading = NO;
+        ELResponse *response = [service recombineResponseWithApi:self
+                                                   resposeObject:rawData
+                                                            code:code];
         // 拦截器
         if ([self.interceptor respondsToSelector:@selector(willCompletedRequestWithResponse:)]) {
             [self.interceptor willCompletedRequestWithResponse:response];

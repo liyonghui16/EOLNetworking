@@ -18,4 +18,18 @@
     return ELRequestTypePOST;
 }
 
+- (BOOL)shouldCallApi:(ELBaseAPI *)api {
+    return YES;
+}
+
+- (BOOL)shouldFinishApi:(ELBaseAPI *)api {
+    return YES;
+}
+
+- (ELResponse *)recombineResponseWithApi:(ELBaseAPI *)api resposeObject:(id)responseObject code:(NSInteger)code {
+    ELResponse *response = [[ELResponse alloc] init];
+    
+    return response;
+}
+
 @end

@@ -49,6 +49,10 @@
 @property (nonatomic, copy, readonly) NSString *commonDomain;
 @property (nonatomic, assign, readonly) ELRequestType commonRequestType;
 
+- (BOOL)shouldCallApi:(ELBaseAPI *)api;
+- (BOOL)shouldFinishApi:(ELBaseAPI *)api;
+- (ELResponse *)recombineResponseWithApi:(ELBaseAPI *)api resposeObject:(id)responseObject code:(NSInteger)code;
+
 @end
 
 @protocol ELUserAuth <NSObject>

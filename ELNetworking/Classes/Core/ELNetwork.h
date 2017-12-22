@@ -11,7 +11,7 @@
 #import "ELResponse.h"
 #import "ELNetworkProtocol.h"
 
-typedef void(^CompletionHandle)(ELResponse *response, NSDictionary *rawData);
+typedef void(^CompletionHandle)(NSDictionary *rawData, NSInteger code);
 
 @interface ELNetwork : NSObject
 

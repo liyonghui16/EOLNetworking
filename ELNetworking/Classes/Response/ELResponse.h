@@ -21,23 +21,23 @@ typedef NS_ENUM(NSUInteger, ELResponseCode) {
 /**
  *  响应数据
  */
-@property (nonatomic, strong, readonly) id data;
+@property (nonatomic, strong) id data;
 /**
  *  响应状态
  */
-@property (nonatomic, assign, readonly) BOOL success;
+@property (nonatomic, assign) BOOL success;
 /**
  *  响应信息
  */
-@property (nonatomic, copy, readonly) NSString *message;
+@property (nonatomic, copy) NSString *message;
 /**
  *  错误码
  */
-@property (nonatomic, assign, readonly) NSInteger errorCode;
+@property (nonatomic, assign) NSInteger errorCode;
 /**
  *  HTTP响应状态码
  */
-@property (nonatomic, assign, readonly) ELResponseCode code;
+@property (nonatomic, assign) ELResponseCode code;
 
 - (instancetype)initWithData:(id)data error:(NSError *)error responseCode:(ELResponseCode)responseCode;
 

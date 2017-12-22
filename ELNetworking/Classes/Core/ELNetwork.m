@@ -8,6 +8,7 @@
 
 #import "ELNetwork.h"
 #import "AFNetworking.h"
+#import "ELServiceManager.h"
 
 @interface ELNetwork ()
 
@@ -50,20 +51,18 @@
 }
 
 - (void)startGETRequestWithRequestUrl:(NSString *)requestUrl params:(NSDictionary *)params completionHandle:(CompletionHandle)completionHandle {
-   
     [[ELNetwork sharedNetwork].manager GET:requestUrl parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
        
    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
        NSHTTPURLResponse *rawResponse = (NSHTTPURLResponse *)task.response;
        NSDictionary *data = responseObject;
-       ELResponse *response = [[ELResponse alloc] initWithData:data error:nil responseCode:rawResponse.statusCode];
-       completionHandle(response, data);
+       completionHandle(data, rawResponse.statusCode);
    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
        NSHTTPURLResponse *rawResponse = (NSHTTPURLResponse *)task.response;
        NSDictionary *errorData = @{@"errorCode" : @(error.code),
                                    @"message" : error.localizedDescription};
-       ELResponse *response = [[ELResponse alloc] initWithData:nil error:error responseCode:rawResponse.statusCode];
-       completionHandle(response, errorData);
+       
+       completionHandle(errorData, rawResponse.statusCode);
    }];
 }
 
@@ -74,14 +73,14 @@
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSHTTPURLResponse *rawResponse = (NSHTTPURLResponse *)task.response;
         NSDictionary *data = responseObject;
-        ELResponse *response = [[ELResponse alloc] initWithData:data error:nil responseCode:rawResponse.statusCode];
-        completionHandle(response, data);
+        
+        completionHandle(data, rawResponse.statusCode);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSHTTPURLResponse *rawResponse = (NSHTTPURLResponse *)task.response;
         NSDictionary *errorData = @{@"errorCode" : @(error.code),
                                     @"message" : error.localizedDescription};
-        ELResponse *response = [[ELResponse alloc] initWithData:nil error:error responseCode:rawResponse.statusCode];
-        completionHandle(response, errorData);
+        
+        completionHandle(errorData, rawResponse.statusCode);
     }];
 }
 
