@@ -7,8 +7,8 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'ELNetworking'
-  s.version          = '0.0.1'
+  s.name             = 'EOLNetworking'
+  s.version          = '0.0.4'
   s.summary          = 'A ELNetworking.'
 
 # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'liyonghui16' => '18335103323@163.com' }
-  s.source           = { :git => 'https://github.com/liyonghui16/ELNetworking.git', :tag => "0.0.3" }
+  s.source           = { :git => 'https://github.com/liyonghui16/ELNetworking.git', :tag => "0.0.4" }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform = :ios, "7.0"

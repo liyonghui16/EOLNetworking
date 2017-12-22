@@ -71,6 +71,8 @@
         if (!result) {
             NSLog(@"归档失败！obj : %@ path : %@", data, fullPath);
         }
+    } else if (cachePolicy == ELCachePolicyNone) {
+        // do nothing.
     }
 }
 

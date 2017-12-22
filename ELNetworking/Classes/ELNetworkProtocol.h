@@ -48,9 +48,10 @@
 
 @property (nonatomic, copy, readonly) NSString *commonDomain;
 @property (nonatomic, assign, readonly) ELRequestType commonRequestType;
+@property (nonatomic, copy, readonly) NSString *pageIndexKey;
+@property (nonatomic, copy, readonly) NSString *pageSizeKey;
 
 - (BOOL)shouldCallApi:(ELBaseAPI *)api;
-- (BOOL)shouldFinishApi:(ELBaseAPI *)api;
 - (ELResponse *)recombineResponseWithApi:(ELBaseAPI *)api resposeObject:(id)responseObject code:(NSInteger)code;
 
 @end

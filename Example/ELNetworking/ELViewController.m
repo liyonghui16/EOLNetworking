@@ -7,8 +7,9 @@
 //
 
 #import "ELViewController.h"
+#import "ELTestAPI.h"
 
-@interface ELViewController ()
+@interface ELViewController () <ELBaseAPIDelegate>
 
 @end
 
@@ -18,6 +19,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    ELTestAPI *api = [[ELTestAPI alloc] init];
+    api.dataReceiver = self;
+    [api requestData];
+}
+
+- (void)api:(ELBaseAPI *)api finishedWithResponse:(ELResponse *)response {
+    NSLog(@"%@", response.data);
 }
 
 - (void)didReceiveMemoryWarning

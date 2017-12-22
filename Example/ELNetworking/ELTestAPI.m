@@ -10,4 +10,14 @@
 
 @implementation ELTestAPI
 
+- (NSString *)APIMethodName {
+    return @"/apiv4/Article/GetDataList";
+}
+
+- (NSDictionary *)APIParams {
+    return @{
+             @"category": @"1"
+             };
+}
+
 @end

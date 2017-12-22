@@ -8,6 +8,6 @@
 
 #import <ELNetworking/ELNetworking.h>
 
-@interface ELTestAPI : ELBaseAPI
+@interface ELTestAPI : ELPagingAPI <APIConfig>
 
 @end

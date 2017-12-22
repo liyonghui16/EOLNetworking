@@ -23,6 +23,8 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		76BB40960099BAA61CA599B2 /* libPods-ELNetworking_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 927D5DD887A5C23E56A697DD /* libPods-ELNetworking_Example.a */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		D8438AA81FECCDDD005A7E73 /* EOLNetworking.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D8438AA71FECCDDD005A7E73 /* EOLNetworking.podspec */; };
+		D8438ACD1FECE6AD005A7E73 /* ELTestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D8438ACC1FECE6AD005A7E73 /* ELTestAPI.m */; };
 		D85B21041FEBB19100BCE2D8 /* ELTestService.m in Sources */ = {isa = PBXBuildFile; fileRef = D85B21031FEBB19100BCE2D8 /* ELTestService.m */; };
 		F17B357A9B5919787AA7BADA /* libPods-ELNetworking_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6C6D2411017AD08A9758FC /* libPods-ELNetworking_Tests.a */; };
 /* End PBXBuildFile section */
@@ -61,13 +63,15 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		75941EDF042294F62EF2065C /* ELNetworking.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ELNetworking.podspec; path = ../ELNetworking.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		927D5DD887A5C23E56A697DD /* libPods-ELNetworking_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ELNetworking_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9509D6FFF05A5B6420418EE8 /* Pods-ELNetworking_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELNetworking_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELNetworking_Example/Pods-ELNetworking_Example.release.xcconfig"; sourceTree = "<group>"; };
 		988E31AAE272258BA0BE9731 /* Pods-ELNetworking_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELNetworking_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELNetworking_Tests/Pods-ELNetworking_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B22C5CE12A1D6B1AC8B38940 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		BA2FBD09D0878F0F0621A3C3 /* Pods-ELNetworking_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELNetworking_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELNetworking_Example/Pods-ELNetworking_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		D8438AA71FECCDDD005A7E73 /* EOLNetworking.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EOLNetworking.podspec; path = ../EOLNetworking.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D8438ACB1FECE6AD005A7E73 /* ELTestAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELTestAPI.h; sourceTree = "<group>"; };
+		D8438ACC1FECE6AD005A7E73 /* ELTestAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTestAPI.m; sourceTree = "<group>"; };
 		D85B21021FEBB19100BCE2D8 /* ELTestService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELTestService.h; sourceTree = "<group>"; };
 		D85B21031FEBB19100BCE2D8 /* ELTestService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTestService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +154,8 @@
 				6003F59D195388D20070C39A /* ELAppDelegate.m */,
 				D85B21021FEBB19100BCE2D8 /* ELTestService.h */,
 				D85B21031FEBB19100BCE2D8 /* ELTestService.m */,
+				D8438ACB1FECE6AD005A7E73 /* ELTestAPI.h */,
+				D8438ACC1FECE6AD005A7E73 /* ELTestAPI.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* ELViewController.h */,
 				6003F5A6195388D20070C39A /* ELViewController.m */,
@@ -194,7 +200,7 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				75941EDF042294F62EF2065C /* ELNetworking.podspec */,
+				D8438AA71FECCDDD005A7E73 /* EOLNetworking.podspec */,
 				2E3B70B432616A87C4350B86 /* README.md */,
 				B22C5CE12A1D6B1AC8B38940 /* LICENSE */,
 			);
@@ -288,6 +294,7 @@
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				D8438AA81FECCDDD005A7E73 /* EOLNetworking.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8438ACD1FECE6AD005A7E73 /* ELTestAPI.m in Sources */,
 				D85B21041FEBB19100BCE2D8 /* ELTestService.m in Sources */,
 				6003F59E195388D20070C39A /* ELAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* ELViewController.m in Sources */,

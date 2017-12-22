@@ -11,7 +11,15 @@
 @implementation ELTestService
 
 - (NSString *)commonDomain {
-    return @"http://www.example.com";
+    return @"http://mvapi.net";
+}
+
+- (NSString *)pageIndexKey {
+    return @"pageIndex";
+}
+
+- (NSString *)pageSizeKey {
+    return @"pageSize";
 }
 
 - (ELRequestType)commonRequestType {
@@ -28,7 +36,8 @@
 
 - (ELResponse *)recombineResponseWithApi:(ELBaseAPI *)api resposeObject:(id)responseObject code:(NSInteger)code {
     ELResponse *response = [[ELResponse alloc] init];
-    
+    response.data = responseObject;
+    response.code = code;
     return response;
 }
 

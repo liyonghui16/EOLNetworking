@@ -42,9 +42,7 @@
 }
 
 - (void)requestData {
-    if (self.isLoading) {
-        return;
-    }
+    if (self.isLoading) return;
     self.isLoading = YES;
     id<ELAPIService> service = [ELServiceManager sharedManager].service;
     NSAssert(service, @"You must register a service for ELNetwork!");
@@ -66,8 +64,8 @@
     if ([self isKindOfClass:[ELPagingAPI class]]) {
         NSMutableDictionary *pagingParams = [NSMutableDictionary dictionary];
         ELPagingAPI *pagingAPI = (ELPagingAPI *)self;
-        [pagingParams setObject:@(pagingAPI.pageIndex) forKey:@"pageNum"];
-        [pagingParams setObject:@(pagingAPI.pageSize) forKey:@"pageSize"];
+        [pagingParams setObject:@(pagingAPI.pageIndex) forKey:service.pageIndexKey ?: @"pageIndex"];
+        [pagingParams setObject:@(pagingAPI.pageSize) forKey:service.pageSizeKey ?: @"pageSize"];
         [params addEntriesFromDictionary:pagingParams];
     }
     // api参数
@@ -98,7 +96,6 @@
         if ([self.dataReceiver respondsToSelector:@selector(api:finishedWithResponse:)]) {
             [self.dataReceiver api:self finishedWithResponse:cacheObj.response];
         }
-//        [self completeRequestWithResponse:cacheObj.response params:params];
         return;
     }
     // 请求前的log

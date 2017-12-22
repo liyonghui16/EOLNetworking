@@ -7,12 +7,16 @@
 //
 
 #import "ELAppDelegate.h"
+#import <ELNetworking/ELServiceManager.h>
+#import "ELTestService.h"
 
 @implementation ELAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    ELTestService *service = [[ELTestService alloc] init];
+    [[ELServiceManager sharedManager] registerService:service];
     return YES;
 }
 
