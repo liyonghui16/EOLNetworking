@@ -35,9 +35,12 @@
 }
 
 - (ELResponse *)recombineResponseWithApi:(ELBaseAPI *)api resposeObject:(id)responseObject code:(NSInteger)code {
+    // 重组服务器返回的数据
     ELResponse *response = [[ELResponse alloc] init];
-    response.data = responseObject;
+    NSDictionary *data = responseObject;
+    response.data = data[@"data"];
     response.code = code;
+    response.message = data[@"msg"];
     if (code == ELResponseCodeSuccess) {
         response.success = YES;
     }
