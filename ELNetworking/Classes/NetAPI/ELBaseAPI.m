@@ -81,7 +81,10 @@
     if ([self conformsToProtocol:@protocol(ELAPIValidator)]) {
         ELValidator *validator = [self.validator validateAPI:self requestParams:params];
         if (!validator.result) {
-            ELResponse *response = [[ELResponse alloc] initWithData:@{@"errmsg": validator.errorMsg, @"errcode": @1} error:nil responseCode:0];
+            ELResponse *response = [[ELResponse alloc] init];
+            response.message = validator.errorMsg;
+            response.code = ELResponseCodeCancle;
+            response.success = NO;
             [self.dataReceiver api:self finishedWithResponse:response];
             response = nil;
             ELLog(@"参数校验失败！取消请求 API :%@\n 错误信息 : %@", self, validator.errorMsg);

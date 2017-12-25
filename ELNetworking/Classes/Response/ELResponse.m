@@ -10,23 +10,6 @@
 
 @implementation ELResponse
 
-- (instancetype)initWithData:(id)data error:(NSError *)error responseCode:(ELResponseCode)responseCode {
-    self = [super init];
-    if (self) {
-        _data = data[@"data"];
-        if (error) {
-            _success = NO;
-            _message = error.localizedDescription;
-            _errorCode = error.code;
-        } else {
-            _success = [data[@"errcode"] integerValue] == 0 ? YES : NO;
-            _message = data[@"errmsg"];
-        }
-        _code = responseCode;
-    }
-    return self;
-}
-
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {

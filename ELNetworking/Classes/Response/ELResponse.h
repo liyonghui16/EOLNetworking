@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, ELResponseCode) {
+    ELResponseCodeCancle = 0,
     ELResponseCodeSuccess = 200,
     ELResponseCodeNotFound = 404,
     ELResponseCodeTimeout = 408,
@@ -38,7 +39,5 @@ typedef NS_ENUM(NSUInteger, ELResponseCode) {
  *  HTTP响应状态码
  */
 @property (nonatomic, assign) ELResponseCode code;
-
-- (instancetype)initWithData:(id)data error:(NSError *)error responseCode:(ELResponseCode)responseCode;
 
 @end
