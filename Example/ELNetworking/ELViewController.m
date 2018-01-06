@@ -10,7 +10,11 @@
 #import "ELTestAPI.h"
 #import <ELNetworking/ELBatchRequest.h>
 
-@interface ELViewController () <ELBaseAPIDelegate, ELBatchRequestDelegate>
+@interface ELViewController () <ELBatchRequestDelegate>
+
+@property (nonatomic, strong) UIButton *api;
+@property (nonatomic, strong) UIButton *apis;
+@property (nonatomic, strong) UIActivityIndicatorView *indicator;
 
 @end
 
@@ -20,31 +24,47 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.indicator.hidesWhenStopped = YES;
+    [self.view addSubview:self.indicator];
 }
 
 - (IBAction)apiRequest:(id)sender {
+    self.api = sender;
     ELTestAPI *api = [[ELTestAPI alloc] init];
     api.dataReceiver = self;
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [api requestData];
+    self.api.hidden = YES;
+    self.indicator.frame = self.api.frame;
+    [self.indicator startAnimating];
 }
 
 - (IBAction)apisRequest:(id)sender {
-//    ELTestAPI *api1 = [[ELTestAPI alloc] init];
-//    api1.dataReceiver = self;
-//    ELTestAPI *api2 = [[ELTestAPI alloc] init];
-//    api2.dataReceiver = self;
-//    ELTestAPI *api3 = [[ELTestAPI alloc] init];
-//    api3.dataReceiver = self;
-//    ELBatchRequest *batchReq = [[ELBatchRequest alloc] initWithBatchAPIs:@[api1, api2, api3]];
-//    batchReq.delegate = self;
-//    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-//    [batchReq requestData];
+    self.apis = sender;
+    ELTestAPI *api1 = [[ELTestAPI alloc] init];
+    ELTestAPI *api2 = [[ELTestAPI alloc] init];
+    ELTestAPI *api3 = [[ELTestAPI alloc] init];
+    ELTestAPI *api4 = [[ELTestAPI alloc] init];
+    ELTestAPI *api5 = [[ELTestAPI alloc] init];
+    ELBatchRequest *batchReq = [[ELBatchRequest alloc] initWithBatchAPIs:@[api1, api2, api3, api4, api5]];
+    batchReq.delegate = self;
+    [batchReq requestData];
+    self.apis.hidden = YES;
+    self.indicator.frame = self.apis.frame;
+    [self.indicator startAnimating];
+}
+
+- (void)batchRequestFinished {
+    self.apis.hidden = NO;
+    [self.indicator stopAnimating];
 }
 
 - (void)api:(ELBaseAPI *)api finishedWithResponse:(ELResponse *)response {
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     NSLog(@"%@", response.message);
+    self.api.hidden = NO;
+    if (api.dataReceiver == self) {
+        [self.indicator stopAnimating];
+    }
 }
 
 - (void)didReceiveMemoryWarning
