@@ -16,6 +16,9 @@
 
 @end
 
+/**
+ 对校验器进行扩展只需要写个Category增加相应方法即可
+ */
 @interface ELValidator : NSObject
 
 @property (nonatomic, strong, readonly) NSMutableArray <ELValidateItem *> *validateItems;
@@ -27,8 +30,14 @@
 //
 - (void)validateEmptyString:(NSString *)string;
 - (void)validateEmptyString:(NSString *)string tip:(NSString *)tip;
+
 - (void)validateEmail:(NSString *)email;
+- (void)validateEmail:(NSString *)email tip:(NSString *)tip;
+
 - (void)validatePhoneNumber:(NSString *)phoneNumber;
+- (void)validatePhoneNumber:(NSString *)phoneNumber tip:(NSString *)tip;
+
 - (void)validateIDCardNumber:(NSString *)IDCardNumber;
+- (void)validateIDCardNumber:(NSString *)IDCardNumber tip:(NSString *)tip;
 
 @end

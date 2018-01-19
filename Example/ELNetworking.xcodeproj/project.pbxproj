@@ -23,6 +23,8 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		76BB40960099BAA61CA599B2 /* libPods-ELNetworking_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 927D5DD887A5C23E56A697DD /* libPods-ELNetworking_Example.a */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		D82EFAA9201197F3000870FD /* ELInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D82EFAA8201197F3000870FD /* ELInputViewController.m */; };
+		D82EFAAC20119910000870FD /* ELInputAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D82EFAAB20119910000870FD /* ELInputAPI.m */; };
 		D8438AA81FECCDDD005A7E73 /* EOLNetworking.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D8438AA71FECCDDD005A7E73 /* EOLNetworking.podspec */; };
 		D8438ACD1FECE6AD005A7E73 /* ELTestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D8438ACC1FECE6AD005A7E73 /* ELTestAPI.m */; };
 		D85B21041FEBB19100BCE2D8 /* ELTestService.m in Sources */ = {isa = PBXBuildFile; fileRef = D85B21031FEBB19100BCE2D8 /* ELTestService.m */; };
@@ -68,6 +70,10 @@
 		988E31AAE272258BA0BE9731 /* Pods-ELNetworking_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELNetworking_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELNetworking_Tests/Pods-ELNetworking_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B22C5CE12A1D6B1AC8B38940 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		BA2FBD09D0878F0F0621A3C3 /* Pods-ELNetworking_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELNetworking_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELNetworking_Example/Pods-ELNetworking_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		D82EFAA7201197F3000870FD /* ELInputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELInputViewController.h; sourceTree = "<group>"; };
+		D82EFAA8201197F3000870FD /* ELInputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELInputViewController.m; sourceTree = "<group>"; };
+		D82EFAAA20119910000870FD /* ELInputAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELInputAPI.h; sourceTree = "<group>"; };
+		D82EFAAB20119910000870FD /* ELInputAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELInputAPI.m; sourceTree = "<group>"; };
 		D8438AA71FECCDDD005A7E73 /* EOLNetworking.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EOLNetworking.podspec; path = ../EOLNetworking.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D8438ACB1FECE6AD005A7E73 /* ELTestAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELTestAPI.h; sourceTree = "<group>"; };
 		D8438ACC1FECE6AD005A7E73 /* ELTestAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTestAPI.m; sourceTree = "<group>"; };
@@ -155,9 +161,13 @@
 				D85B21031FEBB19100BCE2D8 /* ELTestService.m */,
 				D8438ACB1FECE6AD005A7E73 /* ELTestAPI.h */,
 				D8438ACC1FECE6AD005A7E73 /* ELTestAPI.m */,
+				D82EFAAA20119910000870FD /* ELInputAPI.h */,
+				D82EFAAB20119910000870FD /* ELInputAPI.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* ELViewController.h */,
 				6003F5A6195388D20070C39A /* ELViewController.m */,
+				D82EFAA7201197F3000870FD /* ELInputViewController.h */,
+				D82EFAA8201197F3000870FD /* ELInputViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -416,9 +426,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8438ACD1FECE6AD005A7E73 /* ELTestAPI.m in Sources */,
+				D82EFAAC20119910000870FD /* ELInputAPI.m in Sources */,
 				D85B21041FEBB19100BCE2D8 /* ELTestService.m in Sources */,
 				6003F59E195388D20070C39A /* ELAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* ELViewController.m in Sources */,
+				D82EFAA9201197F3000870FD /* ELInputViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

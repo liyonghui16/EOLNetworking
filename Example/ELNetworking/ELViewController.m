@@ -27,6 +27,7 @@
     self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.indicator.hidesWhenStopped = YES;
     [self.view addSubview:self.indicator];
+    
 }
 
 - (IBAction)apiRequest:(id)sender {

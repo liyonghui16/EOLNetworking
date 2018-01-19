@@ -73,8 +73,11 @@
         [params addEntriesFromDictionary:self.child.APIParams];
     }
     // user相关参数
+    if (service.commonParams) {
+        [params addEntriesFromDictionary:service.commonParams];
+    }
     if ([self.child conformsToProtocol:@protocol(ELUserAuth)]) {
-        [params addEntriesFromDictionary:[self specialParams]];
+        [params addEntriesFromDictionary:service.userAuthParams];
     }
     
     // 参数验证 如果验证失败则不发起请求
@@ -147,24 +150,6 @@
     } else {
         ELLog(@"\n%@请求失败 \n 错误信息 : %@ \nhttp响应码 : %ld \nerrorCode : %ld", NSStringFromClass([self class]), response.message, (unsigned long)response.code, (long)response.errorCode);
     }
-}
-
-/**
- 公共参数 比如版本号、签名字符串等等
-
- @return 公共参数
- */
-- (NSDictionary *)commonParams {
-    return @{};
-}
-
-/**
- 特殊参数 比如用户的id
-
- @return 与用户相关的接口需要的额外参数
- */
-- (NSDictionary *)specialParams {
-    return @{};
 }
 
 @end

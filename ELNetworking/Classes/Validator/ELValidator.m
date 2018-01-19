@@ -65,26 +65,38 @@
 }
 
 - (void)validateEmail:(NSString *)email {
+    [self validateEmail:email tip:@"请输入正确格式的邮箱！"];
+}
+
+- (void)validateEmail:(NSString *)email tip:(NSString *)tip {
     ELValidateItem *validateItem = [[ELValidateItem alloc] init];
     validateItem.regex = @"[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?";
     validateItem.targetObj = email;
-    validateItem.errorMsg = @"请输入正确格式的邮箱！";
+    validateItem.errorMsg = tip;
     [self.validateItems addObject:validateItem];
 }
 
 - (void)validatePhoneNumber:(NSString *)phoneNumber {
+    [self validatePhoneNumber:phoneNumber tip:@"请输入正确格式的手机号！"];
+}
+
+- (void)validatePhoneNumber:(NSString *)phoneNumber tip:(NSString *)tip {
     ELValidateItem *validateItem = [[ELValidateItem alloc] init];
     validateItem.regex = @"^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$";
     validateItem.targetObj = phoneNumber;
-    validateItem.errorMsg = @"请输入正确格式的手机号！";
+    validateItem.errorMsg = tip;
     [self.validateItems addObject:validateItem];
 }
 
 - (void)validateIDCardNumber:(NSString *)IDCardNumber {
+    [self validateIDCardNumber:IDCardNumber tip:@"请输入正确格式的身份证号！"];
+}
+
+- (void)validateIDCardNumber:(NSString *)IDCardNumber tip:(NSString *)tip {
     ELValidateItem *validateItem = [[ELValidateItem alloc] init];
     validateItem.regex = @"^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|X)$";
     validateItem.targetObj = IDCardNumber;
-    validateItem.errorMsg = @"请输入正确格式的身份证号！";
+    validateItem.errorMsg = tip;
     [self.validateItems addObject:validateItem];
 }
 
