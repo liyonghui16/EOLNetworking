@@ -38,7 +38,7 @@
 /**
  *  服务器返回的原始数据
  */
-@property (nonatomic, strong, readonly) NSDictionary *rawData;
+@property (nonatomic, strong, readonly) id rawData;
 
 - (void)requestData;
 

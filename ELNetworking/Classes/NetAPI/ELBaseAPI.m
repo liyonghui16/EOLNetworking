@@ -14,7 +14,7 @@
 @interface ELBaseAPI ()
 
 @property (nonatomic, assign) BOOL isLoading;
-@property (nonatomic, strong, readwrite) NSDictionary *rawData;
+@property (nonatomic, strong, readwrite) id rawData;
 
 @end
 
@@ -72,10 +72,11 @@
     if ([self.child respondsToSelector:@selector(APIParams)]) {
         [params addEntriesFromDictionary:self.child.APIParams];
     }
-    // user相关参数
-    if (service.commonParams) {
+    // common
+    if ([service respondsToSelector:@selector(commonParams)]) {
         [params addEntriesFromDictionary:service.commonParams];
     }
+    // user相关参数
     if ([self.child conformsToProtocol:@protocol(ELUserAuth)]) {
         [params addEntriesFromDictionary:service.userAuthParams];
     }
@@ -107,7 +108,7 @@
     // 请求前的log
     [self willRequestWithDomain:domain params:params];
     
-    [[ELNetwork sharedNetwork] startRequestWithMethodType:reqType domain:domain methodName:methodName params:params completionHandle:^(NSDictionary *rawData, NSInteger code) {
+    [[ELNetwork sharedNetwork] startRequestWithMethodType:reqType domain:domain methodName:methodName params:params completionHandle:^(id rawData, NSInteger code) {
         self.rawData = rawData;
         self.isLoading = NO;
         ELResponse *response = [service recombineResponseWithApi:self

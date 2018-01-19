@@ -55,8 +55,7 @@
        
    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
        NSHTTPURLResponse *rawResponse = (NSHTTPURLResponse *)task.response;
-       NSDictionary *data = responseObject;
-       completionHandle(data, rawResponse.statusCode);
+       completionHandle(responseObject, rawResponse.statusCode);
    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
        NSHTTPURLResponse *rawResponse = (NSHTTPURLResponse *)task.response;
        NSDictionary *errorData = @{@"errorCode" : @(error.code),
@@ -72,9 +71,7 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSHTTPURLResponse *rawResponse = (NSHTTPURLResponse *)task.response;
-        NSDictionary *data = responseObject;
-        
-        completionHandle(data, rawResponse.statusCode);
+        completionHandle(responseObject, rawResponse.statusCode);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSHTTPURLResponse *rawResponse = (NSHTTPURLResponse *)task.response;
         NSDictionary *errorData = @{@"errorCode" : @(error.code),

@@ -49,7 +49,6 @@
 @property (nonatomic, assign, readonly) ELRequestType commonRequestType;
 
 - (BOOL)shouldCallApi:(ELBaseAPI *)api;
-- (BOOL)shouldFinishedApi:(ELBaseAPI *)api;
 
 /**
  对获取到的数据进行重组
