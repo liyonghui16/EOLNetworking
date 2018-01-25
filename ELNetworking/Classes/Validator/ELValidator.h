@@ -27,7 +27,11 @@
 
 - (ELValidator *)verify;
 
-//
+@end
+/**ELValidator (ELNetworking)*/
+
+@interface ELValidator (ELNetworking)
+
 - (void)validateEmptyString:(NSString *)string;
 - (void)validateEmptyString:(NSString *)string tip:(NSString *)tip;
 

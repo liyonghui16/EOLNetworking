@@ -44,7 +44,7 @@
     ELValidator *validator = [[ELValidator alloc] init];
     [validator validatePhoneNumber:self.phone tip:@"请输入电话"];
     [validator validateIDCardNumber:self.ID];
-    [validator validateEmptyString:self.code];
+    [validator validateEmptyString:self.code tip:@"验证码不能为空"];
     return validator.verify;
 }
 

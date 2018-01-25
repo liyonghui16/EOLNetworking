@@ -50,6 +50,19 @@
     return self;
 }
 
+#pragma mark - getter
+
+- (NSMutableArray <ELValidateItem *>*)validateItems {
+    if (!_validateItems) {
+        _validateItems = [NSMutableArray array];
+    }
+    return _validateItems;
+}
+
+@end
+
+@implementation ELValidator (ELNetworking)
+
 - (void)validateEmptyString:(NSString *)string {
     [self validateEmptyString:string tip:@"请不要输入空字符！"];
 }
@@ -98,15 +111,6 @@
     validateItem.targetObj = IDCardNumber;
     validateItem.errorMsg = tip;
     [self.validateItems addObject:validateItem];
-}
-
-#pragma mark - getter
-
-- (NSMutableArray <ELValidateItem *>*)validateItems {
-    if (!_validateItems) {
-        _validateItems = [NSMutableArray array];
-    }
-    return _validateItems;
 }
 
 @end

@@ -69,6 +69,7 @@
  user相关参数
  */
 @property (nonatomic, strong, readonly) NSDictionary *userAuthParams;
+//page
 @property (nonatomic, copy, readonly) NSString *pageIndexKey;
 @property (nonatomic, copy, readonly) NSString *pageSizeKey;
 

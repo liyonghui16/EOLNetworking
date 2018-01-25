@@ -35,7 +35,7 @@
 
 - (void)api:(ELBaseAPI *)api finishedWithResponse:(ELResponse *)response {
     if (!response.success) {
-        NSLog(@"error: %@", response.message);
+        NSLog(@"error_msg: %@", response.message);
     }
 }
 
