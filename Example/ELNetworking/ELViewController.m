@@ -8,7 +8,7 @@
 
 #import "ELViewController.h"
 #import "ELTestAPI.h"
-#import <ELNetworking/ELBatchRequest.h>
+#import <EOLNetworking/ELBatchRequest.h>
 
 @interface ELViewController () <ELBatchRequestDelegate>
 

@@ -35,9 +35,7 @@
         });
     }
     dispatch_group_notify(_group, dispatch_get_main_queue(), ^{
-        if ([self.delegate respondsToSelector:@selector(batchRequestFinished)]) {
-            [self.delegate batchRequestFinished];
-        }
+        [self.delegate batchRequestFinished];
     });
 }
 
@@ -45,9 +43,7 @@
 
 - (void)api:(ELBaseAPI *)api finishedWithResponse:(ELResponse *)response {
     dispatch_async(dispatch_get_main_queue(), ^{
-        if ([self.delegate respondsToSelector:@selector(api:finishedWithResponse:)]) {
-            [self.delegate api:api finishedWithResponse:response];
-        }
+        [self.delegate api:api finishedWithResponse:response];
     });
     dispatch_group_leave(_group);
 }

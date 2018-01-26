@@ -13,6 +13,9 @@
 - (void)batchRequestFinished;
 @end
 
+/**
+ 批量请求
+ */
 @interface ELBatchRequest : NSObject
 
 @property (nonatomic, weak) id<ELBatchRequestDelegate> delegate;

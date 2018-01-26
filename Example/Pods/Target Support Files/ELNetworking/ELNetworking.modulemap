@@ -1,6 +1,0 @@
-framework module ELNetworking {
-  umbrella header "ELNetworking-umbrella.h"
-
-  export *
-  module * { export * }
-}

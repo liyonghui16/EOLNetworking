@@ -25,15 +25,15 @@
 @interface ELBaseAPI : NSObject 
 
 @property (nonatomic, weak) id<ELBaseAPIDelegate> dataReceiver;
-
-@property (nonatomic, weak) id<APIConfig> child;
-
-@property (nonatomic, weak) id<ELAPIValidator> validator;
-
-@property (nonatomic, weak) id<ELCacheDelegate> cacheDelegate;
-
-@property (nonatomic, weak) id<ELAPIInterceptor> interceptor;
-
+//
+@property (nonatomic, weak, readonly) id<APIConfig> child;
+//
+@property (nonatomic, weak, readonly) id<ELAPIValidator> validator;
+@property (nonatomic, weak, readonly) id<ELCacheDelegate> cacheDelegate;
+@property (nonatomic, weak, readonly) id<ELAPIInterceptor> interceptor;
+/**
+ api是否在请求中
+ */
 @property (nonatomic, assign, readonly) BOOL isLoading;
 /**
  *  服务器返回的原始数据

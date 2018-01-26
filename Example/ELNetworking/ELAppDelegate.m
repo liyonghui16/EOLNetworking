@@ -7,7 +7,7 @@
 //
 
 #import "ELAppDelegate.h"
-#import <ELNetworking/ELServiceManager.h>
+#import <EOLNetworking/ELServiceManager.h>
 #import "ELTestService.h"
 
 @implementation ELAppDelegate

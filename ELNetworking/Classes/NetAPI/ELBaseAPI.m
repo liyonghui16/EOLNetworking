@@ -13,6 +13,11 @@
 
 @interface ELBaseAPI ()
 
+@property (nonatomic, weak) id<APIConfig> child;
+@property (nonatomic, weak) id<ELAPIValidator> validator;
+@property (nonatomic, weak) id<ELCacheDelegate> cacheDelegate;
+@property (nonatomic, weak) id<ELAPIInterceptor> interceptor;
+//
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, strong, readwrite) id rawData;
 
@@ -23,11 +28,10 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        if ([self conformsToProtocol:@protocol(APIConfig)]) {
-            self.child = (id<APIConfig>)self;
-        }else {
+        if (![self conformsToProtocol:@protocol(APIConfig)]) {
             NSAssert(NO, @"子类必须实现APIConfig协议");
         }
+        self.child = (id<APIConfig>)self;
         if ([self conformsToProtocol:@protocol(ELAPIValidator)]) {
             self.validator = (id<ELAPIValidator>)self;
         }
@@ -46,10 +50,12 @@
     self.isLoading = YES;
     id<ELAPIService> service = [ELServiceManager sharedManager].service;
     NSAssert(service, @"You must register a service for ELNetwork!");
-    if (![service shouldCallApi:self]) return;
+    if (![service shouldCallApi:self]) {
+        self.isLoading = NO;
+        return;
+    }
     
     NSString *domain = service.commonDomain;
-
     if ([self.child respondsToSelector:@selector(APIDomain)]) {
         domain = [self.child APIDomain];
     }
@@ -58,15 +64,13 @@
         reqType = [self.child requestType];
     }
     NSString *methodName = [self.child APIMethodName];
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
     //分页api参数
     if ([self isKindOfClass:[ELPagingAPI class]]) {
-        NSMutableDictionary *pagingParams = [NSMutableDictionary dictionary];
         ELPagingAPI *pagingAPI = (ELPagingAPI *)self;
-        [pagingParams setObject:@(pagingAPI.pageIndex) forKey:service.pageIndexKey ?: @"pageIndex"];
-        [pagingParams setObject:@(pagingAPI.pageSize) forKey:service.pageSizeKey ?: @"pageSize"];
-        [params addEntriesFromDictionary:pagingParams];
+        [params setObject:@(pagingAPI.pageIndex) forKey:service.pageIndexKey ?: @"pageIndex"];
+        [params setObject:@(pagingAPI.pageSize) forKey:service.pageSizeKey ?: @"pageSize"];
     }
     // api参数
     if ([self.child respondsToSelector:@selector(APIParams)]) {
@@ -91,6 +95,7 @@
             response.success = NO;
             [self.dataReceiver api:self finishedWithResponse:response];
             response = nil;
+            self.isLoading = NO;
             ELLog(@"参数校验失败！取消请求 API :%@\n 错误信息 : %@", self, validator.errorMsg);
             return;
         }
@@ -100,9 +105,7 @@
     // 缓存存在并且没有失效 
     if (cacheObj && ![cacheObj isOutDateWithCachePolicy:[self.cacheDelegate cachePolicy]]) {
         self.isLoading = NO;
-        if ([self.dataReceiver respondsToSelector:@selector(api:finishedWithResponse:)]) {
-            [self.dataReceiver api:self finishedWithResponse:cacheObj.response];
-        }
+        [self.dataReceiver api:self finishedWithResponse:cacheObj.response];
         return;
     }
     // 请求前的log
@@ -119,9 +122,7 @@
             [self.interceptor willCompletedRequestWithResponse:response];
         }
         //
-        if ([self.dataReceiver respondsToSelector:@selector(api:finishedWithResponse:)]) {
-            [self.dataReceiver api:self finishedWithResponse:response];
-        }
+        [self.dataReceiver api:self finishedWithResponse:response];
         //
         if ([self.interceptor respondsToSelector:@selector(didCompletedRequestWithResponse:)]) {
             [self.interceptor didCompletedRequestWithResponse:response];
@@ -131,7 +132,7 @@
 }
 
 /**
- 请求前的log 便于调试
+ 请求前后的log 便于调试
 
  @param domain 接口域名
  */
