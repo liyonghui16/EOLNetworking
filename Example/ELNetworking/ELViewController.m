@@ -46,8 +46,7 @@
     ELTestAPI *api2 = [[ELTestAPI alloc] init];
     ELTestAPI *api3 = [[ELTestAPI alloc] init];
     ELTestAPI *api4 = [[ELTestAPI alloc] init];
-    ELTestAPI *api5 = [[ELTestAPI alloc] init];
-    ELBatchRequest *batchReq = [[ELBatchRequest alloc] initWithBatchAPIs:@[api1, api2, api3, api4, api5]];
+    ELBatchRequest *batchReq = [[ELBatchRequest alloc] initWithBatchAPIs:@[api1, api2, api3, api4]];
     batchReq.delegate = self;
     [batchReq requestData];
     self.apis.hidden = YES;

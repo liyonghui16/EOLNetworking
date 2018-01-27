@@ -28,6 +28,7 @@
 		D8438AA81FECCDDD005A7E73 /* EOLNetworking.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D8438AA71FECCDDD005A7E73 /* EOLNetworking.podspec */; };
 		D8438ACD1FECE6AD005A7E73 /* ELTestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D8438ACC1FECE6AD005A7E73 /* ELTestAPI.m */; };
 		D85B21041FEBB19100BCE2D8 /* ELTestService.m in Sources */ = {isa = PBXBuildFile; fileRef = D85B21031FEBB19100BCE2D8 /* ELTestService.m */; };
+		D8A2B506201C71A400A23D35 /* ELPageTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A2B505201C71A400A23D35 /* ELPageTestViewController.m */; };
 		F17B357A9B5919787AA7BADA /* libPods-ELNetworking_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6C6D2411017AD08A9758FC /* libPods-ELNetworking_Tests.a */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,8 @@
 		D8438ACC1FECE6AD005A7E73 /* ELTestAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTestAPI.m; sourceTree = "<group>"; };
 		D85B21021FEBB19100BCE2D8 /* ELTestService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELTestService.h; sourceTree = "<group>"; };
 		D85B21031FEBB19100BCE2D8 /* ELTestService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTestService.m; sourceTree = "<group>"; };
+		D8A2B504201C71A400A23D35 /* ELPageTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELPageTestViewController.h; sourceTree = "<group>"; };
+		D8A2B505201C71A400A23D35 /* ELPageTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELPageTestViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,19 +158,16 @@
 		6003F593195388D20070C39A /* Example for ELNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				D8A2B503201C708800A23D35 /* page */,
+				D8A2B502201C707D00A23D35 /* validator */,
+				D8A2B501201C705A00A23D35 /* base&batch */,
 				6003F59C195388D20070C39A /* ELAppDelegate.h */,
 				6003F59D195388D20070C39A /* ELAppDelegate.m */,
 				D85B21021FEBB19100BCE2D8 /* ELTestService.h */,
 				D85B21031FEBB19100BCE2D8 /* ELTestService.m */,
 				D8438ACB1FECE6AD005A7E73 /* ELTestAPI.h */,
 				D8438ACC1FECE6AD005A7E73 /* ELTestAPI.m */,
-				D82EFAAA20119910000870FD /* ELInputAPI.h */,
-				D82EFAAB20119910000870FD /* ELInputAPI.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* ELViewController.h */,
-				6003F5A6195388D20070C39A /* ELViewController.m */,
-				D82EFAA7201197F3000870FD /* ELInputViewController.h */,
-				D82EFAA8201197F3000870FD /* ELInputViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -213,6 +213,35 @@
 				B22C5CE12A1D6B1AC8B38940 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		D8A2B501201C705A00A23D35 /* base&batch */ = {
+			isa = PBXGroup;
+			children = (
+				6003F5A5195388D20070C39A /* ELViewController.h */,
+				6003F5A6195388D20070C39A /* ELViewController.m */,
+			);
+			name = "base&batch";
+			sourceTree = "<group>";
+		};
+		D8A2B502201C707D00A23D35 /* validator */ = {
+			isa = PBXGroup;
+			children = (
+				D82EFAAA20119910000870FD /* ELInputAPI.h */,
+				D82EFAAB20119910000870FD /* ELInputAPI.m */,
+				D82EFAA7201197F3000870FD /* ELInputViewController.h */,
+				D82EFAA8201197F3000870FD /* ELInputViewController.m */,
+			);
+			name = validator;
+			sourceTree = "<group>";
+		};
+		D8A2B503201C708800A23D35 /* page */ = {
+			isa = PBXGroup;
+			children = (
+				D8A2B504201C71A400A23D35 /* ELPageTestViewController.h */,
+				D8A2B505201C71A400A23D35 /* ELPageTestViewController.m */,
+			);
+			name = page;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,6 +456,7 @@
 			files = (
 				D8438ACD1FECE6AD005A7E73 /* ELTestAPI.m in Sources */,
 				D82EFAAC20119910000870FD /* ELInputAPI.m in Sources */,
+				D8A2B506201C71A400A23D35 /* ELPageTestViewController.m in Sources */,
 				D85B21041FEBB19100BCE2D8 /* ELTestService.m in Sources */,
 				6003F59E195388D20070C39A /* ELAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* ELViewController.m in Sources */,

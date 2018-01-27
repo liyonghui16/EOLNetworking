@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - EOLNetworking (0.0.8):
+  - EOLNetworking (0.0.9):
     - AFNetworking
 
 DEPENDENCIES:
@@ -26,7 +26,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  EOLNetworking: 99719e5d1ea23b6c887b36c8e1856f6fb12dc3b0
+  EOLNetworking: 051225803fe0b24ddb9ebea198b4fa310e66672f
 
 PODFILE CHECKSUM: 68c875e2cf5056d96cbdc7806b63a1258f44abb3
 

@@ -118,14 +118,14 @@
                                                    resposeObject:rawData
                                                             code:code];
         // 拦截器
-        if ([self.interceptor respondsToSelector:@selector(willCompletedRequestWithResponse:)]) {
-            [self.interceptor willCompletedRequestWithResponse:response];
+        if ([self.interceptor respondsToSelector:@selector(api:willCompletedRequestWithResponse:)]) {
+            [self.interceptor api:self willCompletedRequestWithResponse:response];
         }
         //
         [self.dataReceiver api:self finishedWithResponse:response];
         //
-        if ([self.interceptor respondsToSelector:@selector(didCompletedRequestWithResponse:)]) {
-            [self.interceptor didCompletedRequestWithResponse:response];
+        if ([self.interceptor respondsToSelector:@selector(api:didCompletedRequestWithResponse:)]) {
+            [self.interceptor api:self didCompletedRequestWithResponse:response];
         }
         [self completeRequestWithResponse:response params:params];
     }];

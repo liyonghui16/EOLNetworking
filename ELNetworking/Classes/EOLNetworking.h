@@ -6,8 +6,8 @@
 //  Copyright © 2016年 Ens Livan. All rights reserved.
 //
 
-#ifndef ELNetworking_h
-#define ELNetworking_h
+#ifndef EOLNetworking_h
+#define EOLNetworking_h
 
 #import "ELNetworkConfig.h"
 #import "ELNetworkProtocol.h"

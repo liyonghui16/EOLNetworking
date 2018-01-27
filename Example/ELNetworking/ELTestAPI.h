@@ -6,7 +6,7 @@
 //  Copyright © 2017年 liyonghui16. All rights reserved.
 //
 
-#import <EOLNetworking/ELNetworking.h>
+#import <EOLNetworking/EOLNetworking.h>
 
 @interface ELTestAPI : ELPagingAPI <APIConfig>
 

@@ -23,4 +23,14 @@
     return self;
 }
 
+- (void)requestFirstPage {
+    self.pageIndex = 1;
+    [self requestData];
+}
+
+- (void)requestNextPage {
+    self.pageIndex++;
+    [self requestData];
+}
+
 @end

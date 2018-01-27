@@ -39,8 +39,8 @@
 @protocol ELAPIInterceptor <NSObject>
 
 @optional
-- (void)willCompletedRequestWithResponse:(ELResponse *)response;
-- (void)didCompletedRequestWithResponse:(ELResponse *)response;
+- (void)api:(ELBaseAPI *)api willCompletedRequestWithResponse:(ELResponse *)response;
+- (void)api:(ELBaseAPI *)api didCompletedRequestWithResponse:(ELResponse *)response;
 @end
 
 @protocol ELAPIService <NSObject>

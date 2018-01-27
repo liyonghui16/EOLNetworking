@@ -13,4 +13,7 @@
 @property (nonatomic, assign) NSUInteger pageIndex;
 @property (nonatomic, assign) NSUInteger pageSize;
 
+- (void)requestFirstPage;
+- (void)requestNextPage;
+
 @end

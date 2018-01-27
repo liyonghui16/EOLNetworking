@@ -6,7 +6,7 @@
 //  Copyright © 2018年 liyonghui16. All rights reserved.
 //
 
-#import <EOLNetworking/ELNetworking.h>
+#import <EOLNetworking/EOLNetworking.h>
 
 @interface ELInputAPI : ELBaseAPI <APIConfig, ELAPIValidator>
 

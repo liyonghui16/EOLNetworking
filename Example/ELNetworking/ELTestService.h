@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <EOLNetworking/ELNetworking.h>
+#import <EOLNetworking/EOLNetworking.h>
 
 @interface ELTestService : NSObject <ELAPIService>
 
